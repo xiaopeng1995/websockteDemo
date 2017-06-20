@@ -5,7 +5,7 @@ var is_url_test = 'ws://192.168.117.231:8001';
 var websocket = null;
 //判断当前浏览器是否支持WebSocket
 if ('WebSocket' in window) {
-    websocket = new WebSocket(is_url_test+"/websocket");
+    websocket = new WebSocket(is_url_test + "/websocket");
 }
 else {
     alert('当前浏览器 Not support websocket')
@@ -19,7 +19,7 @@ websocket.onerror = function () {
 //连接成功建立的回调方法
 websocket.onopen = function () {
     var div = document.getElementById('scrolldIV');
-    div.innerHTML = div.innerHTML + "连接成功!即将显示实时传送数据..<br>";
+    div.innerHTML = div.innerHTML + "连接成功!即将显示实时传送数据..<span style='Float:right'><a href='websocket.html'>清空</a></span><br>";
     div.scrollTop = div.scrollHeight;
 }
 
@@ -41,7 +41,7 @@ window.onbeforeunload = function () {
 //将消息显示在网页上
 function setMessageInnerHTML(innerHTML1) {
     var div = document.getElementById('scrolldIV');
-    div.innerHTML = div.innerHTML + '<div style="border:1px solid #B9E8F5">' + innerHTML1 + '</div>';
+    div.innerHTML = div.innerHTML + '<div>' + innerHTML1 + '</div>';
     div.scrollTop = div.scrollHeight;
 }
 
