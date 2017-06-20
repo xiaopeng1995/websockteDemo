@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<meta charset="utf-8">
+<head>
+    <title>Java后端WebSocket的RabbitMQ实时通讯</title>
+</head>
+<script src="./js/jquery-1.7.2.min.js" type="text/javascript"></script>
+<body>
+<div style=" position:absolute; right:20px; top:0px"><a href="websocket.html">清除</a></div>
+<div id="scrolldIV" style="overflow:auto;height: 250px;  border: 1px solid #999;">
+</div>
+<div>
+    Welcome<br/><input id="msgtext" type="text"/>
+    <button onclick="sendData()">发送消息</button> 或者Enter键发送！
+    <hr/>
+    -
+    <button onclick="closeWebSocket()">关闭数据监听</button> <span
+        id="megse" style="color: green"></span>&nbsp;&nbsp;<span
+        id="msger" style="color: red"></span>
+    <hr/>
+</div>
+</body>
+<script src="./js/sockte.js" type="text/javascript"></script>
+<script src="./js/webajax.js" type="text/javascript"></script>
+</html>
