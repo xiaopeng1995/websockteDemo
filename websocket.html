@@ -8,7 +8,7 @@
 <body>
 <table width="100%" border="0" cellpadding="0" cellspacing="0">
     <!-- 头部开始 -->
-    <tr>
+    <!--<tr>
         <td width="17" valign="top" background="./Images/mail_left_bg.gif">
             <img src="./Images/left_top_right.gif" width="17" height="29"/>
         </td>
@@ -26,24 +26,20 @@
                                                                                  width="16" height="29"/></td>
     </tr>
     <!-- 中间部分开始 -->
-    <tr>
-        <!--第一行左边框-->
+    <!--<tr>
+
         <td valign="middle" background="./Images/mail_left_bg.gif">&nbsp;</td>
-        <!--第一行中间内容-->
+
         <td valign="top" bgcolor="#F7F8F9">
             <table width="100%" border="0" align="center" cellpadding="0" cellspacing="0">
-                <!-- 空白行-->
+
                 <tr>
                     <td colspan="2" valign="top">&nbsp;</td>
                     <td>&nbsp;</td>
                     <td valign="top">&nbsp;</td>
                 </tr>
-                <!--**********这里是内容**********-->
-                <!--**********这里是内容**********-->
-                <!--**********这里是内容**********-->
-                <!--**********这里是内容**********-->
                 <tr>
-                    <!--左边内容-->
+
                     <td colspan="2" valign="top">
                         <h3 style="margin:0 0 10px 10px;">感谢您使用正因科技模拟器管理程序</h3>
                         <img src="./Images/ts.gif" width="16" height="16" style="margin-left:10px;"> 参数说明：<br/>
@@ -59,9 +55,9 @@
                             运行中代表正在上传数据,停止代表停止</p>
                         <p style="text-indent:20px;line-height:25px;margin-left:10px;font-size:15px;">&nbsp;</p>
                     </td>
-                    <!--间隔-->
+
                     <td width="7%">&nbsp; </td>
-                    <!--右边内容-->
+
                     <td width="40%" valign="top">
                         <table width="100%" height="150" border="0" cellpadding="0" cellspacing="0"
                                style="border: 1px solid #CCCCCC;">
@@ -95,6 +91,21 @@
         </td>
         <td background="./Images/mail_right_bg.gif">
         </td>
+    </tr> -->
+    <tr>
+        <div id="scrolldIV" style="overflow:auto;height: 250px;  border: 1px solid #999;">
+        </div>
+        <div>
+            Welcome<br/><input id="msgtext" type="text"/>
+            <button onclick="sendData()">发送消息</button>
+            或者Enter键发送！
+            <hr/>
+            -
+            <button onclick="closeWebSocket()">关闭数据监听</button> <span
+                id="megse" style="color: green"></span>&nbsp;&nbsp;<span
+                id="msger" style="color: red"></span>
+            <hr/>
+        </div>
     </tr>
 </table>
 </body>
