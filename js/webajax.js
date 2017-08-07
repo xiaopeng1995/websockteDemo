@@ -10,7 +10,7 @@ document.onkeydown = function (event) {
 
 function sendData() {
     var sendval = $('#msgtext').val().replace(/(^\s*)|(\s*$)/g, '');
-    getData("发送成功!", is_url_test + "/app/send/tuling?msg=" + sendval + "&id=" + id);
+    getData("发送成功!", is_url_test + "/app/send/msg?msg=" + sendval + "&id=" + id);
 }
 function login() {
     var div = document.getElementById('user-id');
