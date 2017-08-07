@@ -1,6 +1,6 @@
 // 创建Ajax对象
-var is_url_test = 'http://192.168.117.231:8001';
-
+var is_url_test = 'http://127.0.0.1:8001';
+var id = '';
 document.onkeydown = function (event) {
     var e = event || window.event || arguments.callee.caller.arguments[0];
     if (e && e.keyCode == 13) {
@@ -10,12 +10,15 @@ document.onkeydown = function (event) {
 
 function sendData() {
     var sendval = $('#msgtext').val().replace(/(^\s*)|(\s*$)/g, '');
-    togetData(sendval,"发送成功!");
+    getData("发送成功!", is_url_test + "/app/send/tuling?msg=" + sendval + "&id=" + id);
 }
-function togetData(data, semsgdata) {
+function login() {
+    var div = document.getElementById('user-id');
+}
+function getData(semsgdata, url) {
     $.ajax({
         type: 'GET',
-        url: is_url_test + '/website/test?test=' + data,
+        url: url,
         dataType: "json",
         success: function (data) {
             if (data == null) {
@@ -25,7 +28,7 @@ function togetData(data, semsgdata) {
             }
         },
         error: function (dateer) {
-            setTimeout(ermsg("服务器故障！"+dateer), (2000));
+            setTimeout(ermsg("服务器故障！" + dateer), (2000));
             debugger;
         }
     });
@@ -38,4 +41,10 @@ function ermsg(ermsgdata) {
 function semsg(semsgdata) {
     document.getElementById('megse').innerHTML = semsgdata;
     document.getElementById('msger').innerHTML = "";
+}
+function openPlayer(info) {
+    if (info == "tuling") {
+        id = info;
+        document.getElementById('top-msg').innerHTML = "与机器人聊天";
+    }
 }

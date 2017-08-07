@@ -1,7 +1,8 @@
 /**
  * Created by xiaopeng on 2017/6/20.
  */
-var is_url_test = 'ws://192.168.117.231:8001';
+var is_url_test = 'ws://127.0.0.1:8001';
+var userid = document.getElementById('userid').value;
 var websocket = null;
 //判断当前浏览器是否支持WebSocket
 if ('WebSocket' in window) {
@@ -21,11 +22,17 @@ websocket.onopen = function () {
     var div = document.getElementById('scrolldIV');
     div.innerHTML = div.innerHTML + "连接成功!即将显示实时传送数据..<span style='Float:right'><a href='websocket.html'>清空</a></span><br>";
     div.scrollTop = div.scrollHeight;
+    websocket.send(userid);
 }
 
 //接收到消息的回调方法
 websocket.onmessage = function (event) {
-    setMessageInnerHTML(event.data);
+    var obj = JSON.parse(event.data);
+    if (obj.type == 1) {
+        setMessageInnerHTML(obj);
+    }else if(obj.type == 2){
+        setMessageCountHTML(obj);
+    }
 }
 
 //连接关闭的回调方法
@@ -39,10 +46,15 @@ window.onbeforeunload = function () {
 }
 
 //将消息显示在网页上
-function setMessageInnerHTML(innerHTML1) {
+function setMessageInnerHTML(obj) {
     var div = document.getElementById('scrolldIV');
-    div.innerHTML = div.innerHTML + '<div>' + innerHTML1 + '</div>';
+    div.innerHTML = div.innerHTML + '<div>' + obj.info + '</div>';
     div.scrollTop = div.scrollHeight;
+}
+//将消息显示在统计上
+function setMessageCountHTML(obj) {
+    var div = document.getElementById('count');
+    div.innerHTML = obj.info;
 }
 
 //关闭WebSocket连接
