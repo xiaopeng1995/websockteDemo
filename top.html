@@ -6,7 +6,7 @@
     <script type="text/javascript">
         function logout() {
             if(window.confirm('您确定要退出吗？')) {
-                top.location = 'login.html';
+                top.location = 'index.html';
             }
         }       
     </script>
@@ -17,6 +17,7 @@
                 <td width="50%"><a href="javascript:void(0)"><img style="border:none" src="./Images/logo.png" /></a></td>
                 <td width="30%" style="padding-top:13px;font:15px Arial,SimSun,sans-serif;color:#FFF">项目：<b style="color: red">开发版</b> <a href="http://www.maomilaoshi.cn" target="_blank" style="color: aqua">xx官网</a></td>
                 <td style="padding-top:10px;" align="center"><a href="websocket.html" target="main"><img style="border:none" src="./Images/index.gif" /></a></td>
+                <td style="padding-top:10px;" align="center" onclick="logout()"><img style="border:none" src="./Images/out.gif" /></td>
                 <!--<td style="padding-top:10px;" align="center"><a href="./show_server.html" target="main"><img style="border:none" src="./Images/out.gif" onclick="logout();" /></td>-->
             </tr>
         </table>

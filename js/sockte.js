@@ -1,14 +1,13 @@
 /**
  * Created by xiaopeng on 2017/6/20.
  */
-var is_url_test = 'ws://127.0.0.1:8001';
-var userid = document.getElementById('userid').value;
+var is_url_ws = 'ws://127.0.0.1:8001';
 var websocket = null;
 var divsend = 'opendiv';
 //判断当前浏览器是否支持WebSocket
 if ('WebSocket' in window) {
     $("#tulingdiv").hide();//隐藏机器人对话框
-    websocket = new WebSocket(is_url_test + "/websocket");
+    websocket = new WebSocket(is_url_ws + "/websocket");
 }
 else {
     $("#tulingdiv").hide();//隐藏机器人对话框
@@ -22,10 +21,10 @@ websocket.onerror = function () {
 
 //连接成功建立的回调方法
 websocket.onopen = function () {
-    var div = document.getElementById('scrolldIV');
+    var div = document.getElementById('opendiv');
     div.innerHTML = div.innerHTML + "连接成功!即将显示实时传送数据..<span style='Float:right'><a href='websocket.html'>清空</a></span><br>";
     div.scrollTop = div.scrollHeight;
-    websocket.send(userid);
+    websocket.send(user_token);
 }
 
 //接收到消息的回调方法
