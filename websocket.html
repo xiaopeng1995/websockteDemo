@@ -14,7 +14,9 @@
     </tr>
     <tr>
         <td colspan="2">
-            <div id="scrolldIV" style="overflow:auto;height: 250px;  border: 1px solid #999;">
+            <div id="opendiv" style="overflow:auto;height: 250px;  border: 1px solid #999;">
+            </div>
+            <div id="tulingdiv" style="overflow:auto;height: 250px;  border: 1px solid #999;">
             </div>
         </td>
     </tr>
@@ -31,7 +33,11 @@
                     id="msger" style="color: red"></span><br/>
                 功能选项：<br/><br/>
                 -
-                <button onclick="openPlayer('tuling')">和机器人对话</button><br/><br/>
+                <button onclick="openPlayer('tuling')">和机器人对话</button>
+                <br/><br/>
+                -
+                <button onclick="openPlayer('open')">回到公共区域发言</button>
+                <br/><br/>
                 -
                 <button onclick="closeWebSocket()">关闭数据监听</button>
                 <hr/>

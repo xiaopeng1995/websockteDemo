@@ -4,11 +4,14 @@
 var is_url_test = 'ws://127.0.0.1:8001';
 var userid = document.getElementById('userid').value;
 var websocket = null;
+var divsend = 'opendiv';
 //判断当前浏览器是否支持WebSocket
 if ('WebSocket' in window) {
+    $("#tulingdiv").hide();//隐藏机器人对话框
     websocket = new WebSocket(is_url_test + "/websocket");
 }
 else {
+    $("#tulingdiv").hide();//隐藏机器人对话框
     alert('当前浏览器 Not support websocket')
 }
 
@@ -30,7 +33,7 @@ websocket.onmessage = function (event) {
     var obj = JSON.parse(event.data);
     if (obj.type == 1) {
         setMessageInnerHTML(obj);
-    }else if(obj.type == 2){
+    } else if (obj.type == 2) {
         setMessageCountHTML(obj);
     }
 }
@@ -47,7 +50,7 @@ window.onbeforeunload = function () {
 
 //将消息显示在网页上
 function setMessageInnerHTML(obj) {
-    var div = document.getElementById('scrolldIV');
+    var div = document.getElementById(divsend);
     div.innerHTML = div.innerHTML + '<div>' + obj.info + '</div>';
     div.scrollTop = div.scrollHeight;
 }

@@ -1,5 +1,5 @@
 // 创建Ajax对象
-var is_url_test = 'http://127.0.0.1:8001';
+var is_url_test = 'http://192.168.117.254:8001';
 var id = '';
 document.onkeydown = function (event) {
     var e = event || window.event || arguments.callee.caller.arguments[0];
@@ -45,6 +45,15 @@ function semsg(semsgdata) {
 function openPlayer(info) {
     if (info == "tuling") {
         id = info;
-        document.getElementById('top-msg').innerHTML = "与机器人聊天";
+        divsend = 'tulingdiv';
+        $("#opendiv").hide();
+        $("#tulingdiv").show();
+        document.getElementById('top-msg').innerHTML = "<font color='#FF0000'>与机器人聊天</font>";
+    } else if (info == "open") {
+        id = '';
+        divsend = 'opendiv';
+        $("#opendiv").show();
+        $("#tulingdiv").hide();
+        document.getElementById('top-msg').innerHTML = "公共区域聊天";
     }
 }
