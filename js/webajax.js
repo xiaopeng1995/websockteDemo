@@ -1,11 +1,11 @@
 // 创建Ajax对象
-var is_url_http = 'http://127.0.0.1:8001';
+var is_url_http = 'http://113.209.37.40:8001';
 var send_type = 'open';
 //获取cookie字符串
 var strCookie = document.cookie;
 //将多cookie切割为多个名/值对
 var arrCookie = strCookie.split("; ");
-var user_token;
+var user_token = 'x';
 getCookie();
 document.getElementById("user_token").value = user_token;
 document.onkeydown = function (event) {
@@ -29,6 +29,7 @@ function getCookie() {
 
 function sendData() {
     var sendval = $('#msgtext').val().replace(/(^\s*)|(\s*$)/g, '');
+    document.getElementById("msgtext").value = '';
     getData(is_url_http + "/app/send/msg?msg=" + sendval + "&token="+user_token+"&sendType=" + send_type, 'send');
 }
 function login() {
