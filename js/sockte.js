@@ -1,7 +1,7 @@
 /**
  * Created by xiaopeng on 2017/6/20.
  */
-var is_url_ws = 'ws://113.209.37.40:8001';
+var is_url_ws = 'ws://127.0.0.1:8001';
 var websocket = null;
 var divsend = 'opendiv';
 //判断当前浏览器是否支持WebSocket
@@ -50,11 +50,23 @@ window.onbeforeunload = function () {
 //将消息显示在网页上
 function setMessageInnerHTML(obj) {
     var div = document.getElementById(divsend);
-	var reg = /(http:\/\/|https:\/\/)((\w|=|\?|\.|\/|&|-)+)/g;
-	var rinfo = obj.info;
-	rinfo = rinfo.replace(reg, "<a href='$1$2'>$1$2</a>");
-    div.innerHTML = div.innerHTML + '<div>' + rinfo + '</div>';
+    var reg = /(http:\/\/|https:\/\/)((\w|=|\?|\.|\/|&|-)+)/g;
+    var minfo = obj.info;
+    var rinfo = obj.rinfo;
+    var time = obj.time;
+    var newDate = new Date();
+    newDate.setTime(time);
+    var ttime = newDate.toLocaleString();
+    var username = obj.name;
+    minfo = minfo.replace(reg, "<a href='$1$2'>$1$2</a>");
+    div.innerHTML = div.innerHTML + '<div><font color="#B9E8F5" size="2px">' + ttime + '</font><br><font color="#006600" size="3px">' + username + '</font> :' + minfo + '</div>';
     div.scrollTop = div.scrollHeight;
+    if (rinfo.length > 0) {
+        rinfo = rinfo.replace(reg, "<a href='$1$2'>$1$2</a>");
+        div.innerHTML = div.innerHTML + '<div><font color="#B9E8F5" size="2px">' + ttime + '</font><br>机器人回复-' + '<font color="#006600" size="3px">' + username + '</font> :' + rinfo + '</div>';
+        div.scrollTop = div.scrollHeight;
+
+    }
 }
 //将消息显示在统计上
 function setMessageCountHTML(obj) {

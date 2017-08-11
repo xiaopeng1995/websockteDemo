@@ -6,9 +6,8 @@
 </head>
 <script src="./js/jquery-1.7.2.min.js" type="text/javascript"></script>
 <body>
-
- <input id="user_id" type="text"/>
- <button onclick="login()">登陆</button>
+<input  id="user_name" type="text"  class="top_txtbox" size="19" value="请输入昵称" onfocus="if (value =='请输入昵称'){value =''}" onblur="if (value ==''){value='请输入昵称'}" />
+ <button onclick="login()">游客登录</button>
   <span
           id="megse" style="color: green"></span>&nbsp;&nbsp;<span
          id="msger" style="color: red"></span>
