@@ -63,9 +63,7 @@ function getData(url, type) {
             }
         },
         error: function (XMLHttpRequest, textStatus, errorThrown) {
-            alert(XMLHttpRequest.status);
-            alert(XMLHttpRequest.readyState);
-            alert(textStatus);
+            alert(textStatus+"您的浏览器可能不支持。请清除cookie后重试！");
             setTimeout(ermsg("服务器故障！" + dateer), (2000));
             debugger;
         }
