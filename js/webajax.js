@@ -1,5 +1,5 @@
 // 创建Ajax对象
-var is_url_http = 'http://127.0.0.1:8001';
+var is_url_http = 'http://113.209.37.40:8001';
 var send_type = 'open';
 //获取cookie字符串
 var strCookie = document.cookie;
@@ -38,7 +38,7 @@ function sendData() {
 }
 function login() {
     var username = document.getElementById("user_name").value;
-    document.cookie = "username=" + username + ";";
+    document.cookie = "username=" + username ;
     getData(is_url_http + "/app/login/visitor?name=" + username, 'login');
 }
 function getData(url, type) {
@@ -58,7 +58,7 @@ function getData(url, type) {
             }
             else if (type == 'login') {
                 semsg("登陆成功！即将跳转。。");
-                document.cookie = document.cookie + "usertoken=" + data.data.token + ";";
+                document.cookie ="usertoken=" + data.data.token ;
                 setTimeout(tomain(), (2000));
             }
         },

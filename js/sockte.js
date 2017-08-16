@@ -1,7 +1,7 @@
 /**
  * Created by xiaopeng on 2017/6/20.
  */
-var is_url_ws = 'ws://127.0.0.1:8001';
+var is_url_ws = 'ws://113.209.37.40:8001';
 var websocket = null;
 var divsend = 'opendiv';
 //判断当前浏览器是否支持WebSocket
